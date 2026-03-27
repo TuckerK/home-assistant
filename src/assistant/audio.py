@@ -1,3 +1,4 @@
+import signal
 import subprocess
 import time
 
@@ -17,12 +18,14 @@ def record_audio(filename="input.wav"):
             "-r",
             "16000",
             filename,
-        ]
+        ],
+        stdout=subprocess.DEVNULL,
+        stderr=subprocess.DEVNULL,
     )
     try:
         input()
     finally:
-        proc.terminate()
+        proc.send_signal(signal.SIGINT)
         proc.wait()
 
     time.sleep(0.3)

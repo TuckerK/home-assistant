@@ -16,6 +16,20 @@ TIMEZONE_ALIASES = {
     "chicago": "America/Chicago",
 }
 
+LIVE_INFO_KEYWORDS = (
+    "weather",
+    "forecast",
+    "temperature",
+    "rain",
+    "snow",
+    "news",
+    "traffic",
+    "stock",
+    "stocks",
+    "bitcoin",
+    "price",
+)
+
 
 def _time_response(text):
     lower = " ".join(text.lower().split())
@@ -40,5 +54,7 @@ def handle(text):
         return "Hello Tucker. I am online."
     if "shutdown" in lower or "shut down" in lower:
         return "Shutdown command recognized, but not executed."
+    if any(keyword in lower for keyword in LIVE_INFO_KEYWORDS):
+        return "I do not have live data access for that yet."
 
     return llm.ask(text)
