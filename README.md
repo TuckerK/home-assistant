@@ -2,6 +2,12 @@
 
 Voice assistant package for a Raspberry Pi client using local audio I/O, VM-hosted speech-to-text, Ollama over HTTP, and WS2812 LED state feedback.
 
+## Documentation
+
+- `docs/architecture.md`: current system design and module map
+- `docs/operations.md`: install, run, and test commands for Pi and VM
+- `docs/status.md`: current behavior, measurements, and known gaps
+
 ## Pi setup
 
 ```bash
