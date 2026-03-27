@@ -5,15 +5,21 @@ build-backend = "setuptools.build_meta"
 [project]
 name = "home-assistant-device"
 version = "0.1.0"
-description = "Raspberry Pi voice assistant client"
+description = "Raspberry Pi voice assistant with VM-hosted speech and LLM services"
 readme = "README.md"
 requires-python = ">=3.11"
 dependencies = [
   "requests",
-  "faster-whisper",
+]
+
+[project.optional-dependencies]
+pi = [
   "rpi-ws281x",
   "adafruit-circuitpython-neopixel",
   "adafruit-blinka",
+]
+server = [
+  "faster-whisper",
 ]
 
 [tool.setuptools]

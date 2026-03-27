@@ -1,19 +1,21 @@
-from faster_whisper import WhisperModel
+import requests
 
 from . import config
 
 
 class SpeechToText:
-    def __init__(self):
-        self.model = WhisperModel(
-            config.WHISPER_MODEL,
-            compute_type=config.COMPUTE_TYPE,
-        )
+    def __init__(self, url=None):
+        self.url = url or config.TRANSCRIBE_URL
 
     def transcribe(self, filename):
-        segments, _ = self.model.transcribe(
-            filename,
-            beam_size=1,
-            vad_filter=True,
-        )
-        return " ".join(seg.text.strip() for seg in segments).strip()
+        with open(filename, "rb") as audio_file:
+            response = requests.post(
+                self.url,
+                data=audio_file,
+                headers={"Content-Type": "audio/wav"},
+                timeout=config.TRANSCRIBE_TIMEOUT,
+            )
+
+        response.raise_for_status()
+        data = response.json()
+        return data.get("text", "").strip()

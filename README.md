@@ -1,10 +1,17 @@
 # Home Assistant Device
 
-Voice assistant package for a Raspberry Pi client using local audio I/O, faster-whisper STT, Ollama over HTTP, and WS2812 LED state feedback.
+Voice assistant package for a Raspberry Pi client using local audio I/O, VM-hosted speech-to-text, Ollama over HTTP, and WS2812 LED state feedback.
 
-## Run
+## Pi setup
 
 ```bash
-pip install -e .
+pip install -e ".[pi]"
 python -m assistant
+```
+
+## VM transcription server
+
+```bash
+pip install -e ".[server]"
+python -m assistant.server
 ```
