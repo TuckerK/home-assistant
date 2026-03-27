@@ -11,9 +11,11 @@ def record_audio(filename="input.wav"):
             "-D",
             config.MIC_DEVICE,
             "-f",
-            "cd",
-            "-V",
-            "mono",
+            "S16_LE",
+            "-c",
+            "1",
+            "-r",
+            "16000",
             filename,
         ]
     )
