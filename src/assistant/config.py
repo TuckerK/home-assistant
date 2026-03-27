@@ -1,0 +1,20 @@
+MIC_DEVICE = "plughw:3,0"
+SPEAKER_DEVICE = "plughw:4,0"
+
+OLLAMA_URL = "http://192.168.1.24:11434/api/generate"
+OLLAMA_MODEL = "gemma3:1b"
+REQUEST_TIMEOUT = 30
+
+PIXEL_PIN = "D18"
+PIXEL_COUNT = 16
+BRIGHTNESS = 0.15
+
+WHISPER_MODEL = "tiny"
+COMPUTE_TYPE = "int8"
+
+IDLE = (0, 0, 255)
+RECORDING = (255, 0, 0)
+THINKING = (255, 255, 0)
+SPEAKING = (0, 255, 0)
+ERROR = (255, 0, 255)
+OFF = (0, 0, 0)
