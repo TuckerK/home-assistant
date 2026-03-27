@@ -7,6 +7,7 @@ Voice assistant package for a Raspberry Pi client using local audio I/O, VM-host
 - `docs/architecture.md`: current system design and module map
 - `docs/operations.md`: install, run, and test commands for Pi and VM
 - `docs/status.md`: current behavior, measurements, and known gaps
+- `docs/next-steps.md`: next session handoff and ordered follow-up work
 
 ## Pi setup
 
